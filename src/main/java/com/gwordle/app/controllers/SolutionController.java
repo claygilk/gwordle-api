@@ -14,12 +14,6 @@ import com.gwordle.app.repositories.SolutionRepository;
 @RequestMapping("/api/v1/solutions")
 public class SolutionController {
 
-    @Value("${spring.datasource.username}")
-	private String userName;
-
-	@Value("${spring.datasource.password}")
-	private String passWord;
-
     
     @Autowired
     private SolutionRepository solutionRepository;
@@ -27,11 +21,6 @@ public class SolutionController {
     @GetMapping
     @RequestMapping("{id}")
     public Solution getWordById(@PathVariable Long id){
-
-        
-		System.out.println("DEBUG ## User Name = " + userName);
-		System.out.println("DEBUG ## Password = " + passWord);
-
 
         return this.solutionRepository.getReferenceById(id);
     }

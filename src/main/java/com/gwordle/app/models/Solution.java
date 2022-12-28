@@ -19,5 +19,5 @@ public class Solution {
     private String word;
 
     @Getter @Setter
-    private Boolean wasUsed;
+    private Boolean was_used;
 }
