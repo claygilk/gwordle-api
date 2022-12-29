@@ -10,7 +10,15 @@ import lombok.Setter;
 @Entity(name = "solutions")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Solution {
+
+    public Solution(Long id, String word, Boolean was_used){
+        this.id = id;
+        this.word = word;
+        this.was_used = was_used;
+    }
     
+    public Solution() {}
+
     @Id
     @Getter @Setter
     private Long id;
