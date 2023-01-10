@@ -29,6 +29,11 @@ public class SolutionController {
         return this.solutionRepository.findById(id)
         .orElseThrow(() -> new SolutionNotFoundException(id));
     }
+
+    @GetMapping("/today")
+    public Solution getTodaysWordle(){
+        return this.solutionRepository.findTodaysWordle();
+    }
     
     @GetMapping
     @CrossOrigin(origins = "http://localhost:3000")
@@ -41,6 +46,23 @@ public class SolutionController {
     @PostMapping
     public void addSolution(@RequestBody Solution solution){
         this.solutionRepository.saveAndFlush(solution);
+    }
+
+    public Solution setTodaysWordle(){
+     
+        // call getTodaysWordle
+
+        // if TodaysWordle exist, set is_todays=false and was_used=true
+
+        // get list of Id's of solutions where was_used=false
+
+        // random number gen to pick random ID
+
+        // update solution where ID=rng, set is_todays=true
+
+
+        return new Solution();
+
     }
 
     @PutMapping("{id}")

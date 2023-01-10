@@ -28,4 +28,7 @@ public class Solution {
 
     @Getter @Setter
     private Boolean was_used;
+
+    @Getter @Setter
+    private Boolean is_todays_wordle;
 }
