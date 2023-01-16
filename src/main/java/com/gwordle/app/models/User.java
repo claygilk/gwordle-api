@@ -2,6 +2,8 @@ package com.gwordle.app.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -30,6 +32,7 @@ public class User {
     private String password; // WARNING! Unencrypted!
     private String email;
 
+    @JsonManagedReference
     @OneToMany
     private List<Guess> guessHistory;
 

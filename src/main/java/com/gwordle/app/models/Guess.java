@@ -2,6 +2,8 @@ package com.gwordle.app.models;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,6 +28,7 @@ public class Guess {
     // @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long guess_id;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user; 
