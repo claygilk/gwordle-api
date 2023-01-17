@@ -9,6 +9,6 @@ import com.gwordle.app.models.User;
 public interface UserRepository extends JpaRepository<User, Long> {
     
     @Modifying
-    @Query("UPDATE User u WHERE u.id = ?#{id} SET u.email = ?#{user.email};")
+    @Query("UPDATE User u SET u.email = ?#{user.email} WHERE u.id = ?#{id}")
     public void updateUserById(Long id, User user);
 }
