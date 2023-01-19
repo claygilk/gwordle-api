@@ -14,18 +14,19 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@ToString
 @Getter
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "wordle_guesses")
 public class Guess {
 
     // test comment other stuff
     @Id
-    // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long guess_id;
 
     @JsonBackReference

@@ -12,7 +12,7 @@ public interface UserService {
 
     public UserProj getUserById(Long id);
 
-    public List<Guess> getUserGuessHistory();
+    public List<Guess> getUserGuessHistory(Long id);
 
     public List<User> getAllUsers();
     

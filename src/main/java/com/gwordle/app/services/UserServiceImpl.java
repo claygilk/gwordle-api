@@ -37,9 +37,10 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<Guess> getUserGuessHistory() {
-        // TODO Auto-generated method stub
-        return null;
+    public List<Guess> getUserGuessHistory(Long id) {
+        User user = userRepo.findById(id).orElseThrow(() -> new NoSuchElementException());
+        System.out.println(user.getGuessHistory());
+        return user.getGuessHistory();
     }
 
     @Override

@@ -43,8 +43,8 @@ public class UserController {
     }
 
     @GetMapping("{id}/history")
-    public List<Guess> getUserGuessHistory(){
-        return userService.getUserGuessHistory();
+    public List<Guess> getUserGuessHistory(@PathVariable Long id){
+        return userService.getUserGuessHistory(id);
     }
 
     @PutMapping("{id}")
