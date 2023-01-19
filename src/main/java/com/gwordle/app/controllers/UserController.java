@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.gwordle.app.models.Guess;
 import com.gwordle.app.models.User;
+import com.gwordle.app.models.UserProj;
 import com.gwordle.app.services.UserService;
 
 @RestController
@@ -32,12 +33,12 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> getAllUsers(){
-        return userService.getAllUsers();
+    public List<UserProj> getAllUsers(){
+        return userService.getAllUserProjs();
     }
 
     @GetMapping("{id}")
-    public User getUserById(@PathVariable Long id){
+    public UserProj getUserById(@PathVariable Long id){
         return userService.getUserById(id);
     }
 

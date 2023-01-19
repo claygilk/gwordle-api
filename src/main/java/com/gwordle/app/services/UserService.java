@@ -2,21 +2,21 @@ package com.gwordle.app.services;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-
 import com.gwordle.app.models.Guess;
 import com.gwordle.app.models.User;
+import com.gwordle.app.models.UserProj;
 
 public interface UserService {
 
     public void deleteUserById(Long id);
 
-    public User getUserById(Long id);
+    public UserProj getUserById(Long id);
 
     public List<Guess> getUserGuessHistory();
 
     public List<User> getAllUsers();
+    
+    public List<UserProj> getAllUserProjs();
 
     public User updateUserById(Long id, User updatedUser);
 

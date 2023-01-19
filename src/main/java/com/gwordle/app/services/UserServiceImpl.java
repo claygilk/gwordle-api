@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.gwordle.app.models.Guess;
 import com.gwordle.app.models.User;
+import com.gwordle.app.models.UserProj;
 import com.gwordle.app.repositories.UserRepository;
 
 import jakarta.transaction.Transactional;
@@ -30,8 +31,9 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User getUserById(Long id) {
-        return userRepo.findById(id).orElseThrow(() -> new NoSuchElementException());
+    public UserProj getUserById(Long id) {
+        return userRepo.findUserProj(id);
+        // return userRepo.findById(id).orElseThrow(() -> new NoSuchElementException());
     }
 
     @Override
@@ -43,6 +45,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> getAllUsers() {
         return userRepo.findAll();
+    }
+
+    @Override
+    public List<UserProj> getAllUserProjs(){
+        return userRepo.getAllUserProjs();
     }
 
     @Override
