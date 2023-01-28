@@ -1,0 +1,28 @@
+podman run -d --name postgres \
+-p 5432:5432 \
+-v /home/claygilk/repos/gwordle-db/data:/var/lib/postgresql/data \
+-v /home/claygilk/repos/gwordle-db/scripts:/scripts \
+-e POSTGRES_PASSWORD=test postgres:latest
+
+
+podman exec -it some-postgres /bin/bash
+
+psql -U postgres -d postgres -a -f /scripts/solutions.sql
+psql -U postgres -d postgres -h localhost -a -f ./scripts/solutions.sql
+psql -U postgres -d postgres -h localhost
+psql -U postgres -d postgres -h http://gwordle.10.0.0.26.nip.io:8080/db
+psql -U admin -d postgresdb
+
+ > to query db remoteley
+PGPASSWORD=test psql -h postgres.default.svc.cluster.local -p 5432 -U admin postgresdb -c "select * from solutions"
+
+  POSTGRES_DB: postgresdb
+  POSTGRES_USER: admin
+  POSTGRES_PASSWORD: test
+
+
+curl http://localhost:8081/api/v1/solutions/today
+
+curl -X POST -H "Content-Type: application/json" -d @test_user.json http://localhost:8081/user
+
+sudo apt install postgresql postgresql-contrib
